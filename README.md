@@ -1,9 +1,3 @@
-<p align="center">
-  <a href="">
-    <img src="" alt="" height="500" width="500" />
-  </a>
-</p>
-
 <h3 align="center">JSVectorMap Markers</h3>
 
 jsvectormapmarkers is a npm package that contains a comprehensive list of country/jurisdictions/territories and city coordinates (latitude and longitude) for markers in the jsVectorMap interactive map package. The project serves as a utility packgage for jsVectorMap[[1]](#references) which highlights many countries within their interactive maps. 
@@ -17,7 +11,9 @@ Many countries/jurisdictions/territories are too small or unavailable in the map
 <img src="https://img.shields.io/npm/v/jsvectormapmarkers.svg?sanitize=true" alt="Version">
 <!-- <img src="https://img.shields.io/bundlephobia/min/jsvectormapmarkers" alt="Minified">
 <img src="https://img.shields.io/bundlephobia/minzip/jsvectormapmarkers" alt="Minizipped"> -->
+
 [![Issues](https://img.shields.io/github/issues/amckenna41/jsVectorMapMarkers)](https://github.com/amckenna41/jsVectorMapMarkers/issues)
+
 [![Size](https://img.shields.io/github/repo-size/amckenna41/jsVectorMapMarkers)](https://github.com/amckenna41/jsVectorMapMarkers)
 [![Commits](https://img.shields.io/github/commit-activity/w/amckenna41/jsVectorMapMarkers)](https://github.com/amckenna41/jsVectorMapMarkers)
 
@@ -76,7 +72,7 @@ map.addMarkers(marker);
 ```
 <p align="center">
   <a href="">
-    <img src="https://raw.githubusercontent.com/amckenna41/jsVectorMapMarkers/main/images/bermuda.png" alt="bermuda" height="500" width="500" />
+    <img src="https://raw.githubusercontent.com/amckenna41/jsVectorMapMarkers/raw/main/images/bermuda.png" alt="bermuda" height="500" width="500" />
   </a>
 </p>
 
