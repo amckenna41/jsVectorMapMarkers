@@ -1,5 +1,7 @@
 <h3 align="center">JSVectorMap Markers</h3>
 
+> In Development...
+
 jsvectormapmarkers is a npm package that contains a comprehensive list of country/jurisdictions/territories and city coordinates (latitude and longitude) for markers in the jsVectorMap interactive map package. The project serves as a utility packgage for jsVectorMap[[1]](#references) which highlights many countries within their interactive maps. 
 
 Many countries/jurisdictions/territories are too small or unavailable in the maps, therefore this package was created to easily integrate those small parts of the world that are unavailable or too small to see in the jsVectorMap maps using Markers e.g. Marshall Islands, Aruba, Seychelles etc. Markers are little vectors that can be added to a map to highlight a specific part of the world. Coming soon is a similar methodology but for major cities of the world...
@@ -100,5 +102,7 @@ References
 
 \[1\]: https://github.com/themustafaomar/jsvectormap <br>
 
-[Back to top](#TOP)
+<p align="center">
 
+[Back to top](#TOP)
+</p>
