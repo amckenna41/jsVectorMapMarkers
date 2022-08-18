@@ -1,0 +1,1 @@
+[ ] - Change jsVectorMapMarkers references to jsvectormapmarkers

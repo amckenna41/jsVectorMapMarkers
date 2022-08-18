@@ -1,0 +1,35 @@
+{
+  "name": "jsvectormapmarkers",
+  "version": "0.0.1",
+  "description": "A lightweight JS library for adding markers to jsvectormap interactive maps.",
+  "main": "src/jsvectormapmarkers.js",
+  "author": {
+    "name": "AJ McKenna",
+    "email": "amckenna41@qub.ac.uk"
+  },
+  "keywords": [
+    "javascript",
+    "jsvectormap",
+    "interactive",
+    "markers",
+    "vector",
+    "map",
+    "svg"
+  ],
+  "files": [
+    "src",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amckenna41/jsVectorMapMarkers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amckenna41/jsVectorMapMarkers/issues"
+  },
+  "homepage": "https://github.com/amckenna41/jsVectorMapMarkers",
+  "license": "MIT",
+  "dependencies": {
+    "module": "jsvectormap"
+} 
+}
