@@ -1,4 +1,4 @@
-export default function getMarkerLatLng(country) {
+function getMarkerLatLng(country) {
     
     //validate input var is of type string
     if (typeof country !== 'string') {

@@ -42,6 +42,13 @@ jsvectormapmarkers can then also be installed via npm:
 npm i jsvectormapmarkers
 ```
 
+Import via CDN key:
+```html
+<script src="https://cdn.jsdelivr.net/npm/jsvectormapmarkers@0.0.1/src/jsvectormapmarkers.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormapmarkers@0.0.1/src/jsvectormapcitymarkers.min.js">
+
+```
+
 Usage
 -----
 
