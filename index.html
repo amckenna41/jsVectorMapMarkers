@@ -1,3 +1,210 @@
+<<<<<<< HEAD
 <!-- example html webpage with dropdown of markers and map -->
 
 <script src="https://cdn.jsdelivr.net/npm/jsvectormapmarkers@0.0.1/src/jsvectormapmarkers.min.js"></script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jsVectorMapMarkers Demo</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="scripts/jquery-jvectormap-2.0.5.css"> -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- <script src="scripts/jquery-jvectormap-2.0.5.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.5.1/js/jsvectormap.min.js"></script> -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.min.js"></script>
+<script src="https://jvectormap.com/js/jquery-jvectormap-world-mill.js"></script>
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.5.1/js/jsvectormap.min.js" integrity="sha512-Usy0blusj7i0rK8l5fpxeLr1MJMRcEndPb52ERUper34tGGp6gp25ysD2a8hG7MAVsv1zl/2J8kP3vr/QGdRzw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.5.1/css/jsvectormap.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/jsvectormapmarkers@0.0.3/src/jsvectormapmarkers.min.js"></script>
+
+<script src="src/jsvectormapmarkers.js"></script>
+
+<style></style>
+
+<div class="header">
+    <h1>🌎 jsVectorMapMarkers Demo 🌎</h1>
+    <h2>A quick demo for my custom-built package that provides a list of markers for the interactive jsVectorMap maps.</h2>
+<!-- <a class="headerBtn" href="https://github.com/amckenna41/iso3166-flag-icons"></a> -->
+<button class="mainBtns" id="githubBtn" onclick="location.href='https://github.com/amckenna41/jsVectorMapMarkers'" type="button">
+    <i class="fa fa-github fa-2x"></i> Github Repository
+</button class="mainBtns" onclick="location.href='https://github.com/amckenna41/flag-icons/archive/main.zip'" type="button">
+<div class="downloadBtn">
+<button class="mainBtns">
+    <i class="fa fa-download"></i> Download repo
+</button>
+<button class="mainBtns">
+    <i class="fa fa-download"></i> Download via npm
+</button>
+
+</div>
+
+</div>
+<div class="dropdowns">
+    <select class="js-example-basic js-states form-control" data-placeholder="Select marker" id="markerSelect" name="state" style="width: 19%; margin-right: 5px;"></select>
+</div>
+
+
+<div style="background-color: transparent;">
+    <div class="container" style="width: auto; min-height: 550px;">
+    <!-- <div class="jvectormap-tip" id="customTip" style="width: 200px; height: 110px;">&nbsp;</div> -->
+    
+    <div id="map-jurisdiction-filter" style="margin-bottom:20px;">&nbsp;</div>
+    <div id="map-core" style="height: 612px;">&nbsp;</div>
+    
+    </div>
+</div>
+
+
+<script>
+
+var mapColour = "#93959b";
+var countryColour = "#a4d446";
+var markerColour = "#a4d446";
+
+function drawMap(country="") {
+
+    var countriesToDraw = {};
+
+    if (country == "" || country == undefined || country.length == 0 || Number.isInteger(country)) {
+        countriesToDraw = {};
+    } else {
+        if (countryCodes[country] != undefined) {
+            countriesToDraw[countryCodes[country]] = countryColour;
+        }
+    }
+
+    console.log('countriesToDraw', countriesToDraw);
+
+    //initialise empty heatmap object
+    $("#map-core").empty();
+
+    //create new JVector map object with desired jurisdictions and markers highlighted
+    world_map = new jvm.Map({
+
+        container: $('#map-core'),  //html container to store heatmap
+        map: 'world_mill',      //version of heatmap to use (world_mill)
+        backgroundColor: "#ffffff",     
+        regionStyle: {initial: {fill: mapColour}},
+        colors: "#ffcc00",  //colours of selected jurisdictions
+        series: {
+            regions: [{ 
+            values: countriesToDraw,
+            attribute: 'fill'
+            }]
+        },
+        markerStyle: {
+            initial: {
+                fill: countryColour,
+                stroke: '#000000' 
+        }
+            },
+        onRegionClick: function(e, code) {
+            if (countriesToDraw[code] == null || countriesToDraw[code] == undefined ) {
+                e.preventDefault();
+            } else {   
+                lookupCountry = world_map.getRegionName(code)
+                $('#markerSelect').val(lookupCountry);
+                $('#markerSelect').trigger('change');
+            }
+        },
+        onMarkerClick: function(e, code){
+            if (countriesToDraw[code] == null || countriesToDraw[code] == undefined ) {
+                e.preventDefault();         
+            } else {
+                lookupCountry = tempMarkers[code].name; 
+                $('#markerSelect').val(lookupCountry);
+                $('#markerSelect').trigger('change');
+                drawCountryTable(rest_iso3166_2_json);
+            }
+        },
+        onRegionTipShow: function(e, el, code) {
+            if (countriesToDraw[code] == null || countriesToDraw[code] == undefined ) {
+                e.preventDefault();
+            } else {
+                var jurisdiction =  world_map.getRegionName(code);
+                //<![CDATA[
+                el.html('<span style="font-size:12px;font-weight:700;">' + jurisdiction + '</span>').css("font-size", "12px").css("background-color", "white").css("border", "1px solid #b23427").css("color", "#425563").css("padding", "3px");           
+                //]]>
+            }
+        },
+        
+        zoomOnScroll: false,
+        zoomOnScrollSpeed: 2,
+        zoomAnimate: true,
+        zoomButtons : false,
+        regionSelectable: true,
+        markersSelectable: true
+    });	 
+
+}
+
+
+function drawMarkersDropdown() {
+
+    $("#markerSelect").empty(); 
+
+    $("#markerSelect").select2(); 
+
+    //set placeholder for dropdown 
+    $("#markerSelect").select2({
+        markerSelect: "Select a marker",
+        closeOnSelect: true
+    });
+
+    var markerList = [];
+
+    for (mark in allMarkers) {
+        var markerDropdownString = "";
+        if (allMarkers[mark]['name'] != "" && allMarkers[mark]['name'] != undefined) {
+            markerDropdownString+=allMarkers[mark]['name']
+            if (allMarkers[mark]['alpha2'] != "" && allMarkers[mark]['alpha2'] != undefined) {
+                markerDropdownString+=" - " + allMarkers[mark]['alpha2']
+            }
+            if (allMarkers[mark]['alpha3'] != "" && allMarkers[mark]['alpha3'] != undefined) {
+                markerDropdownString+=" - " + allMarkers[mark]['alpha3']
+            }
+        markerList.push(markerDropdownString);
+    }
+
+    $.each(markerList, function (i, p) {
+        $('#markerSelect').append($('<option></option>').val(p).html(p));
+    });
+
+
+    }
+}
+
+
+$('#markerSelect').on('select2:select', function (e) {
+    var data = e.params.data;
+});
+
+$("#markerSelect").on("select2:select", function (event) {
+    lookupMarker = $(this).val();
+    drawMap(lookupCountry);
+
+});
+
+$("#markerSelect").on("select2:unselect", function (event) {
+    lookupMarker = $(this).val();
+});
+
+$(document).ready(function () {
+    drawMarkersDropdown();
+    drawMap();
+});
+
+
+</script>
+>>>>>>> 68cd5d9f8f2d924318289b1d76c4026ab09e8afb
