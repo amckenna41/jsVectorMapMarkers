@@ -1,4 +1,4 @@
-export default function getMarkerLatLng(country) {
+function getMarkerLatLng(country) {
     
     //validate input var is of type string
     if (typeof country !== 'string') {
@@ -327,3 +327,58 @@ export default function getMarkerLatLng(country) {
     return markerCoords;
 
 }
+
+var allMarkers = {};
+var allMarkerNames = [];
+var allMarkerISOAlpha2 = [];
+var allMarkerISOAlpha3 = [];
+
+function getAllMarkers() {
+
+    allMarkers = [
+        {"name": "Aland Islands", "alpha2": "AX", "alpha3": "ALA"},
+        {"name": "American Samoa", "alpha2": "AS", "alpha3": "ASM"},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""},
+        {"name": "", "alpha2": "", "alpha3": ""}
+    ];
+
+    for (var mark in allMarkers) {
+        allMarkerNames.push(allMarkers[mark]['name']);
+        console.log(allMarkers[mark]['name'])
+        allMarkerISOAlpha2.push(allMarkers[mark]['alpha2']);
+        allMarkerISOAlpha3.push(allMarkers[mark]['alpha3']);
+    }
+
+}
+
+function getAllMarkerNames() {
+    if (allMarkerNames.length == 0) {
+        getAllMarkers();
+    }
+    return allMarkerNames;
+}
+
+function getAllMarkerAlpha2() { 
+    if (allMarkerISOAlpha2.length == 0) {
+        getAllMarkers();
+    }
+    return allMarkerISOAlpha2;
+}
+
+function getAllMarkerAlpha3() { 
+    if (allMarkerISOAlpha3.length == 0) {
+        getAllMarkers();
+    }
+    return allMarkerISOAlpha3;
+}
+
+getAllMarkerNames();
+getAllMarkerAlpha2();
+getAllMarkerAlpha3();
