@@ -32,7 +32,7 @@ function getMarkerLatLng(country) {
         case "aruba": case "abw": case "aw":
             markerCoords = [12.5211, -69.9683]           
         break;
-        case "ascension island": case "sh-ac":
+        case "ascension island": case "asc": case "ac":
             markerCoords = [-7.9683, -14.3897]           
         break;
         case "barbados": case "brb": case "bb":
@@ -170,7 +170,7 @@ function getMarkerLatLng(country) {
         case "luxembourg": case "lux": case "lu":
             markerCoords = [49.8153, 6.1296]           
         break;
-        case "macau": case "macao": case "mac": case "MO":
+        case "macau": case "macao": case "mac": case "mo":
             markerCoords = [22.1987, 113.5439]           
         break;
         case "maldives": case "mdv": case "mv":
@@ -224,13 +224,13 @@ function getMarkerLatLng(country) {
         case "palestine": case "pse": case "ps":
             markerCoords = [31.9522, 35.2332]           
         break;
-        case "pitcairn": case "pitcairn, henderson, ducie and oeno islands": case "pcn": case "PN":
+        case "pitcairn": case "pitcairn, henderson, ducie and oeno islands": case "pcn": case "pn":
             markerCoords = [-24.3768, -128.3242]           
         break;
         case "puerto rico": case "pri": case "pr":
             markerCoords = [18.2208, -66.5901]           
         break;
-        case "qatar": case "qat": case "QA":
+        case "qatar": case "qat": case "qa":
             markerCoords = [25.3548, 51.1839]           
         break;
         case "reunion": case "reunion island": case "reu": case "re":
@@ -293,11 +293,11 @@ function getMarkerLatLng(country) {
         case "trinidad and tobago": case "tto": case "tt":
             markerCoords = [10.6918, -61.2225];           
         break;
-        case "tristan da cunha": case "sh-ta":
+        case "tristan da cunha": case "ta": case "taa":
             markerCoords = [-37.1052, -12.2777]
         break;
         case "turks and caicos islands": case "tca": case "tc":
-            markerCoords = [-21.6940, 71.7979]           
+            markerCoords = [21.6940, -71.7979]           
         break;
         case "tuvalu": case "tuv": case "tv":
             markerCoords = [-7.1095, 177.6493]           
@@ -338,20 +338,107 @@ function getAllMarkers() {
     allMarkers = [
         {"name": "Aland Islands", "alpha2": "AX", "alpha3": "ALA"},
         {"name": "American Samoa", "alpha2": "AS", "alpha3": "ASM"},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""},
-        {"name": "", "alpha2": "", "alpha3": ""}
+        {"name": "Anguilla", "alpha2": "AI", "alpha3": "AIA"},
+        {"name": "Antigua and Barbuda", "alpha2": "AG", "alpha3": "ATG"},
+        {"name": "Andorra", "alpha2": "AD", "alpha3": "AND"},
+        {"name": "Aruba", "alpha2": "AW", "alpha3": "ABW"},
+        {"name": "Ascension Island", "alpha2": "AC", "alpha3": "ASC"},
+        {"name": "Barbados", "alpha2": "BB", "alpha3": "BRB"},
+        {"name": "Bahamas", "alpha2": "BS", "alpha3": "BHS"},
+        {"name": "Bahrain", "alpha2": "BH", "alpha3": "BHR"},
+        {"name": "Bonaire, Saint Eustatius and Saba", "alpha2": "BQ", "alpha3": "BES"},
+        {"name": "Bouvet Island", "alpha2": "BV", "alpha3": "BVT"},
+        {"name": "British Indian Ocean Territory", "alpha2": "IO", "alpha3": "IOT"},
+        {"name": "British Virgin Islands", "alpha2": "VG", "alpha3": "VGB"},
+        {"name": "Brunei", "alpha2": "BN", "alpha3": "BRN"},
+        {"name": "Canary Islands", "alpha2": "IC", "alpha3": ""},
+        {"name": "Cape Verde", "alpha2": "CV", "alpha3": "CPV"},
+        {"name": "Cayman Islands", "alpha2": "KY", "alpha3": "CYM"},
+        {"name": "Ceuta, Melilla", "alpha2": "EA", "alpha3": ""},
+        {"name": "Christmas Island", "alpha2": "CX", "alpha3": "CXR"},
+        {"name": "Clipperton Island", "alpha2": "CP", "alpha3": "CPT"},
+        {"name": "Cocos Islands", "alpha2": "CC", "alpha3": "CCK"},
+        {"name": "Comoros", "alpha2": "KM", "alpha3": "COM"},
+        {"name": "Cook Islands", "alpha2": "CK", "alpha3": "COK"},
+        {"name": "Curacao", "alpha2": "CW", "alpha3": "CUW"},
+        {"name": "Cyprus", "alpha2": "CY", "alpha3": "CYP"},
+        {"name": "Diego Garcia", "alpha2": "DG", "alpha3": "DGA"},
+        {"name": "Dominica", "alpha2": "DM", "alpha3": "DMA"},
+        {"name": "Dominican Republic", "alpha2": "DO", "alpha3": "DOM"},
+        {"name": "Falkland Islands", "alpha2": "FK", "alpha3": "FLK"},
+        {"name": "Faroe Islands", "alpha2": "FO", "alpha3": "FRO"},
+        {"name": "Fiji", "alpha2": "FJ", "alpha3": "FJI"},
+        {"name": "French Guiana", "alpha2": "GF", "alpha3": "GUF"},
+        {"name": "French Polynesia", "alpha2": "PF", "alpha3": "PYF"},
+        {"name": "French Southern Territories", "alpha2": "TF", "alpha3": "ATF"},
+        {"name": "Gibraltar", "alpha2": "GI", "alpha3": "GIB"},
+        {"name": "Grenada", "alpha2": "GD", "alpha3": "GRD"},
+        {"name": "Guadeloupe", "alpha2": "GP", "alpha3": "GLP"},
+        {"name": "Guam", "alpha2": "GU", "alpha3": "GUM"},
+        {"name": "Guernsey", "alpha2": "GG", "alpha3": "GGY"},
+        {"name": "Haiti", "alpha2": "HT", "alpha3": "HTI"},
+        {"name": "Heard Island and McDonald Islands", "alpha2": "HM", "alpha3": "HMD"},
+        {"name": "Hong Kong", "alpha2": "HK", "alpha3": "HKG"},
+        {"name": "Isle of Man", "alpha2": "IM", "alpha3": "IMN"},
+        {"name": "Jersey", "alpha2": "JE", "alpha3": "JEY"},
+        {"name": "Jamaica", "alpha2": "JM", "alpha3": "JAM"},
+        {"name": "Kiribati", "alpha2": "KI", "alpha3": "KIR"},
+        {"name": "Liechtenstein", "alpha2": "LI", "alpha3": "LIE"},
+        {"name": "Luxembourg", "alpha2": "LU", "alpha3": "LUX"},
+        {"name": "Macau", "alpha2": "MO", "alpha3": "MAC"},
+        {"name": "Maldives", "alpha2": "MV", "alpha3": "MDV"},
+        {"name": "Malta", "alpha2": "MT", "alpha3": "MLT"},
+        {"name": "Marshall Islands", "alpha2": "MH", "alpha3": "MHL"},
+        {"name": "Martinique", "alpha2": "MQ", "alpha3": "MTQ"},
+        {"name": "Mauritius", "alpha2": "MU", "alpha3": "MUS"},
+        {"name": "Mayotte", "alpha2": "YT", "alpha3": "MYT"},
+        {"name": "Micronesia", "alpha2": "FM", "alpha3": "FSM"},
+        {"name": "Monaco", "alpha2": "MC", "alpha3": "MCO"},
+        {"name": "Montserrat", "alpha2": "MS", "alpha3": "MSR"},
+        {"name": "Nauru", "alpha2": "NR", "alpha3": "NRU"},
+        {"name": "New Caledonia", "alpha2": "NC", "alpha3": "NCL"},
+        {"name": "Netherlands Antilles", "alpha2": "AN", "alpha3": "ANT"},
+        {"name": "Niue", "alpha2": "NU", "alpha3": "NIU"},
+        {"name": "Norfolk Island", "alpha2": "NF", "alpha3": "NFK"},
+        {"name": "Northern Mariana Islands", "alpha2": "MP", "alpha3": "MNP"},
+        {"name": "Palau", "alpha2": "PW", "alpha3": "PLW"},
+        {"name": "Palestine", "alpha2": "PS", "alpha3": "PSE"},
+        {"name": "Pitcairn", "alpha2": "PN", "alpha3": "PCN"},
+        {"name": "Puerto Rico", "alpha2": "PR", "alpha3": "PRI"},
+        {"name": "Qatar", "alpha2": "QA", "alpha3": "QAT"},
+        {"name": "Reunion", "alpha2": "RE", "alpha3": "REU"},
+        {"name": "Saint Barthelemy", "alpha2": "BL", "alpha3": "BLM"},
+        {"name": "Saint Helena, Ascension and Tristan da Cunha", "alpha2": "SH", "alpha3": "SHN"},
+        {"name": "Saint Kitts and Nevis", "alpha2": "KN", "alpha3": "KNA"},
+        {"name": "Saint Lucia", "alpha2": "LC", "alpha3": "LCA"},
+        {"name": "Saint Martin", "alpha2": "MF", "alpha3": "MAF"},
+        {"name": "Saint Pierre and Miquelon", "alpha2": "PM", "alpha3": "SPM"},
+        {"name": "Saint Vincent and The Grenadines", "alpha2": "VC", "alpha3": "VCT"},
+        {"name": "Samoa", "alpha2": "WS", "alpha3": "WSM"},
+        {"name": "San Marino", "alpha2": "SM", "alpha3": "SMR"},
+        {"name": "Sao Tome and Principe", "alpha2": "ST", "alpha3": "STP"},
+        {"name": "Seychelles", "alpha2": "SC", "alpha3": "SYC"},
+        {"name": "Sint Maarten", "alpha2": "SX", "alpha3": "SXM"},
+        {"name": "Singapore", "alpha2": "SG", "alpha3": "SGP"},
+        {"name": "Solomon Islands", "alpha2": "SB", "alpha3": "SLB"},
+        {"name": "South Georgia and the South Sandwich Islands", "alpha2": "GS", "alpha3": "SGS"},
+        {"name": "Svalbard", "alpha2": "SJ", "alpha3": "SJM"},
+        {"name": "Timor-Leste", "alpha2": "TL", "alpha3": "TLS"},
+        {"name": "Tokelau", "alpha2": "TK", "alpha3": "TKL"},
+        {"name": "Tonga", "alpha2": "TO", "alpha3": "TON"},
+        {"name": "Trinidad and Tobago", "alpha2": "TT", "alpha3": "TTO"},
+        {"name": "Tristan da Cunha", "alpha2": "TA", "alpha3": "TAA"},
+        {"name": "Turks and Caicos Islands", "alpha2": "TC", "alpha3": "TCA"},
+        {"name": "Tuvalu", "alpha2": "TV", "alpha3": "TUV"},
+        {"name": "US Minor Outlying Islands", "alpha2": "UM", "alpha3": "UMI"},
+        {"name": "US Virgin Islands", "alpha2": "VI", "alpha3": "VIR"},
+        {"name": "Vanuatu", "alpha2": "VU", "alpha3": "VUT"},
+        {"name": "Vatican City", "alpha2": "VA", "alpha3": "VAT"},
+        {"name": "Wallis and Futuna", "alpha2": "WF", "alpha3": "WLF"}
     ];
 
     for (var mark in allMarkers) {
         allMarkerNames.push(allMarkers[mark]['name']);
-        console.log(allMarkers[mark]['name'])
         allMarkerISOAlpha2.push(allMarkers[mark]['alpha2']);
         allMarkerISOAlpha3.push(allMarkers[mark]['alpha3']);
     }

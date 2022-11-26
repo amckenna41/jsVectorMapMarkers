@@ -1,6 +1,17 @@
-[ ] - Change jsVectorMapMarkers references to jsvectormapmarkers
-<<<<<<< HEAD
-[ ] - Add to CDN - https://medium.com/javarevisited/how-to-host-your-repository-js-css-on-open-source-cdn-jsdelivr-4de252d6fbad
-=======
-[ ] - Add func to get list of all markers (name, isoalpha2 & 3)
->>>>>>> 68cd5d9f8f2d924318289b1d76c4026ab09e8afb
+- [ ] Change jsVectorMapMarkers references to jsvectormapmarkers
+- [ ] Add to CDN - https://medium.com/javarevisited/how-to-host-your-repository-js-css-on-open-source-cdn-jsdelivr-4de252d6fbad
+- [ ] Add func to get list of all markers (name, isoalpha2 & 3)
+- [ ] Use jsVectorMap maps of US, Italy, France etc to add city markers to.
+- [ ] Add comments to index.html 
+- [ ] Add flag icons to list of countries in dropdown.
+- [ ] Add github logo to github button.
+- [ ] Fix "All Markers" in dropdown such that all markers are actually drawn.
+- [ ] Add small 'X' button to right of marker dropdown that removes any existing markers.
+- [ ] When "All Markers" selected from dropwdown, all marker tips show "All Markers".
+- [ ] Reduce size of header.
+- [ ] Look into adding little flag-icons to select2 dropdown - update: not possible (https://stackoverflow.com/questions/11890597/is-it-possible-to-add-div-or-span-inside-an-option-tag)
+- [ ] Saint Vincent & Grenadines not showing up in dropdown.
+- [ ] Multiple markers on map, tip shows text of latest country selected in dropdown - mapMarkers
+- [ ] Deselecting a marker from dropdown will undraw it from map.
+- [ ] Using GeoJSON in some way.
+- [ ] Add linter to workflow.

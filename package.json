@@ -1,6 +1,6 @@
 {
   "name": "jsvectormapmarkers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A lightweight JS library for adding markers to jsvectormap interactive maps.",
   "main": "src/jsvectormapmarkers.js",
   "author": {
