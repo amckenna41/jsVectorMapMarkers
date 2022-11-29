@@ -12,7 +12,7 @@ function getCityMarkerLatLng(city) {
     var markerCoords=[];
     
     //iterate over all cases of switch statment, return lat long coords of matching country/jurisdiction
-    switch(country) {
+    switch(city) {
 
         case "london":
             markerCoords = []

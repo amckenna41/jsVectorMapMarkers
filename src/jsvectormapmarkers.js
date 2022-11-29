@@ -334,6 +334,11 @@ var allMarkerISOAlpha2 = [];
 var allMarkerISOAlpha3 = [];
 
 function getAllMarkers() {
+     /**
+     * 
+     *
+     * @param none 
+     */
 
     allMarkers = [
         {"name": "Aland Islands", "alpha2": "AX", "alpha3": "ALA"},

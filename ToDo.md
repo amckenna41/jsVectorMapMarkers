@@ -3,7 +3,7 @@
 - [ ] Add func to get list of all markers (name, isoalpha2 & 3)
 - [ ] Use jsVectorMap maps of US, Italy, France etc to add city markers to.
 - [ ] Add comments to index.html 
-- [ ] Add flag icons to list of countries in dropdown.
+- [X] Add flag icons to list of countries in dropdown.
 - [ ] Add github logo to github button.
 - [ ] Fix "All Markers" in dropdown such that all markers are actually drawn.
 - [ ] Add small 'X' button to right of marker dropdown that removes any existing markers.
@@ -15,3 +15,18 @@
 - [ ] Deselecting a marker from dropdown will undraw it from map.
 - [ ] Using GeoJSON in some way.
 - [ ] Add linter to workflow.
+- [ ] Add comments to functions.
+- [ ] Add buttons on index demo page to flick between the different maps e.g US, Russia, France, default is World. 
+- [ ] Add buttons to index for continental level markers.
+- [ ] Add link to demo on readme.
+- [ ] Add demo index.html to its own repo, initialise repo as Github page. 
+- [ ] Remove .DS_Store and any pycahce from repo. 
+- [ ] Add copy to clipboard icon and functionality in npm install.
+- [ ] Marker dropdown not aligning properly.
+- [ ] Add arrow to RHS of dropdown.
+- [ ] Add github release. 
+- [ ] Look over original jsvectormaps repo to get correct structure for npm package.
+- [ ] Ensure repo badges are on 1 line.
+- [ ] Emphasise/highlight country border when hovered over. 
+- [ ] Play about and change map colour to be less gray. 
+- [ ] JSvectormap React component.
