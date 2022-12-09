@@ -21,7 +21,7 @@
 - [ ] Add link to demo on readme.
 - [ ] Add demo index.html to its own repo, initialise repo as Github page. 
 - [ ] Remove .DS_Store and any pycahce from repo. 
-- [ ] Add copy to clipboard icon and functionality in npm install.
+- [X] Add copy to clipboard icon and functionality in npm install.
 - [ ] Marker dropdown not aligning properly.
 - [ ] Add arrow to RHS of dropdown.
 - [ ] Add github release. 
@@ -30,3 +30,4 @@
 - [ ] Emphasise/highlight country border when hovered over. 
 - [ ] Play about and change map colour to be less gray. 
 - [ ] JSvectormap React component.
+- [ ] Add copy to clipboard tooltip on hover of clipboard.

@@ -117,15 +117,17 @@
         <h2 class="header" style="padding: 2px;">Install via npm:</h2>
     </div>
     <div>
-        <pre class="install">npm -i jsvectormapmarkers</pre>
+        <pre id="npm-text" class="install">npm -i jsvectormapmarkers <i style="cursor: pointer" onclick="copyContent()" class="fas fa-clipboard"></i></pre>
     </div>
 </div>
 
 <!-- marker dropdown -->
 <div class="dropdowns">
     <!-- <select class="js-example-basic js-states form-control" data-placeholder="Select marker" id="markerSelect" name="state" style="width: 30%; margin-right: 5px;"></select> -->
-    <!-- <select class="js-example-basic-multiple" data-placeholder="Select marker" id="markerSelect" multiple="multiple" name="states[]" style="width: 30%; margin-right: 5px;"></select> -->
-    <select data-placeholder="Select marker" id="markerSelect" name="states[]" style="width: 30%; margin-right: 5px;"></select>
+    <!-- <select class="js-example-basic-multiple" id="markerSelect" multiple="multiple" name="states[]" style="width: 30%; margin-right: 1px;"></select> -->
+    <!-- <select data-placeholder="Select marker" id="markerSelect" name="state" style="width: 20%; margin-right: 5px;"></select> -->
+    <select class="js-example-basic js-states form-control" data-placeholder="Select marker" id="markerSelect" name="state" style="width: 19%; margin-right: 5px;"></select>
+    <select class="js-example-basic js-states form-control" data-placeholder="Select map" id="mapSelect" name="state" style="width: 19%; margin-right: 5px;"></select>
 </div>
 
 
@@ -141,6 +143,7 @@
 
 <script>
 
+
 //default colour of map countries and colour of highlighted countries/markers
 var mapColour = "#93959b";
 var countryColour = "#a4d446";
@@ -150,7 +153,15 @@ var markerColour = "#ffdd00";
 var markerList = [];
 var mapMarkers = [];
 
-function drawMap(country="", deselect=false) {
+var mapType = {"world": "world_mill",
+               "europe": "europe_mill",
+                "africa": "africa-mill"};
+
+var mapTypeURL = {"world": "https://jvectormap.com/js/jquery-jvectormap-world-mill.js",
+                  "europe": "https://jvectormap.com/js/jquery-jvectormap-europe-mill.js",
+                  "africa": "https://jvectormap.com/js/jquery-jvectormap-africa-mill.js"};
+
+function drawMap(country="", deselect=false, map="world") {
     /**
     * Draw interactive jsVectorMap with user-input country/marker
     *
@@ -187,7 +198,8 @@ function drawMap(country="", deselect=false) {
             } 
     }
 
-    console.log("mapMarkers", mapMarkers);
+    console.log("mappp", map);
+    console.log("mapMarkers", mapType[map]);
 
     //get 2 letter ISO Code of marker for flag-icon attribute 
     var countryCode = "";
@@ -207,7 +219,7 @@ function drawMap(country="", deselect=false) {
     world_map = new jvm.Map({
 
         container: $('#map-core'),  //html container to store heatmap
-        map: 'world_mill',      //version of heatmap to use (world_mill)
+        map: mapType[map],      //version of heatmap to use (world_mill)
         backgroundColor: "#ffffff",     
         regionStyle: {initial: {fill: mapColour}},
         colors: "#ffcc00",  //colours of selected jurisdictions
@@ -277,16 +289,16 @@ function drawMarkersDropdown() {
     *
     * @param country {string} - 
     */
-    // $("#markerSelect").empty(); 
+    //create empty select2 object via jquery
+    $("#markerSelect").empty(); 
 
-    $("#markerSelect").select2(); 
+    //create select2 object
+    // $("#markerSelect").select2(); 
 
     //set placeholder for dropdown 
     $("#markerSelect").select2({
-        markerSelect: "Select a marker",
-        placeholder: "Select a marker",
-        multiple: true,
-        closeOnSelect: false
+        countrySelect: "Select a marker",
+        closeOnSelect: true
     });
 
     for (mark in allMarkers) {
@@ -313,6 +325,87 @@ function drawMarkersDropdown() {
 
 
 }
+
+function drawMapsDropdown() {
+    /**
+    * 
+    * @param country {string} - 
+    */
+    //create empty select2 object via jquery
+    $("#mapSelect").empty(); 
+
+    //set placeholder for dropdown 
+    $("#mapSelect").select2({
+        mapSelect: "Select a map",
+        closeOnSelect: true
+    });
+
+    let mapContinentList = ["World", "Europe", "North America", "South Ameria", "Africa", "Oceania"];
+    let mapCountryList = ["USA", "UK", "Russia", "China", "Canada", "Spain", "France"].sort();
+
+    // let mapList = mapContinentList.concat(mapCountryList);
+
+    let mapList = Object.keys(mapType);
+
+    //add list of markers to dropdown
+    $.each(mapList, function (i, p) {
+        $('#mapSelect').append($('<option></option>').val(p).html(p));
+    });
+
+}
+
+const copyContent = async () => {
+    /**
+    * 
+    *
+    * @param country {string} - 
+    */
+    try {
+        await navigator.clipboard.writeText(document.getElementById('npm-text').innerHTML);
+        console.log('Content copied to clipboard');
+    } catch (err) {
+        console.error('Failed to copy: ', err);
+        }
+}
+
+function loadSelectedMap(map) {
+    /**
+    * 
+    *
+    * @param country {string} - 
+    */
+    //get script url for inputted map
+    try {
+        var mapURL = mapTypeURL[map];
+    } catch (err) {
+        console.log("Invalid map name input: ", err);
+    }
+
+    //check if script already loaded on front-end
+    var scriptLoaded = $('script[src="'+mapURL+'"]').length;
+
+    console.log("scriptloaded", scriptLoaded);
+    console.log("mapURL", mapURL);
+
+    if (!scriptLoaded) {
+        var script = document.createElement("script");  // create a script DOM node
+        script.src = mapURL;  // set its src to the provided URL
+    
+        document.head.appendChild(script);  // add it to the end of the head section of the page 
+
+        console.log('getting here')
+    }
+
+}
+
+// var mapType = {"world": "world_mill",
+//                "europe": "europe_mill",
+//                 "africa": "africa_mill"};
+
+// var mapTypeURL = {"world": "https://jvectormap.com/js/jquery-jvectormap-world-mill.js",
+//                   "europe": "https://jvectormap.com/js/jquery-jvectormap-europe-mill.js",
+//                   "africa": "https://jvectormap.com/js/jquery-jvectormap-africa-mill.js"};
+
 
 
 $('#markerSelect').on('select2:select', function (e) {
@@ -348,8 +441,31 @@ $("#markerSelect").on("select2:unselect", function (event) {
     console.log('Unsleecting marker')
 });
 
+
+
+
+
+$('#mapSelect').on('select2:select', function (e) {
+    var data = e.params.data;
+});
+
+$("#mapSelect").on("select2:select", function (e) {
+    var lookupMap = $(this).val();
+    console.log("map", lookupMap)
+    loadSelectedMap(lookupMap);
+    drawMap(country="", deselect=0, map=lookupMap);
+});
+
+$("#mapSelect").on("select2:unselect", function (event) {
+    lookupMarker = $(this).val();
+    draw(lookupMarker, true);
+    console.log('Unsleecting map')
+});
+
+
 $(document).ready(function () {
     drawMarkersDropdown();
+    drawMapsDropdown();
     drawMap();
 });
 
